@@ -15,7 +15,7 @@ class Main
 		end
 
 		@sqs = AWS::SQS.new :access_key_id => opts[:aws_access_key_id],
-							:secret_access_key => opts[:aws_secret_access_key]
+												:secret_access_key => opts[:aws_secret_access_key]
 
 		@bucket_names_queue = queue_named @opts[:bucket_names_queue]
 		@bucket_status_queue = queue_named @opts[:bucket_status_queue]
@@ -37,8 +37,8 @@ class Main
 		status = check_status obj[:bucket_name]
 		time = Time.now - now
 		obj.merge! 	:bucket_status => status,
-					:processed_by => @opts[:worker_id],
-					:request_time => time
+								:processed_by => @opts[:worker_id],
+								:request_time => time
 		@bucket_status_queue.send_message obj.to_yaml
 	end
 
