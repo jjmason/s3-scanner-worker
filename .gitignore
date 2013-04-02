@@ -1,4 +1,5 @@
-lib-cov
+
+.DS_Store
 *.seed
 *.log
 *.csv
@@ -7,8 +8,3 @@ lib-cov
 *.pid
 *.gz
 
-pids
-logs
-results
-
-npm-debug.log
